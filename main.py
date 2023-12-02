@@ -18,7 +18,7 @@ AOC_TZ = ZoneInfo("America/New_York")
 INPUTTXT = arguments[0] if len(arguments) > 0 else 's'
 PART = arguments[1] if len(arguments) > 1 else 1
 CURRENT_DAY = str(arguments[2]) if len(
-    arguments) > 2 else str(datetime.now().day)
+    arguments) > 2 else str(datetime.now(AOC_TZ).day)
 
 
 def readFile():
