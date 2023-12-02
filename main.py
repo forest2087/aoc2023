@@ -6,12 +6,14 @@ import importlib
 
 from datetime import datetime
 from aocd import get_data
+from zoneinfo import ZoneInfo
 
 # python main.py 1 s 1
 # python main.py 1 i 2
 # type, part, day
 arguments = sys.argv[1:]  # Skip the script name
 
+AOC_TZ = ZoneInfo("America/New_York")
 
 INPUTTXT = arguments[0] if len(arguments) > 0 else 's'
 PART = arguments[1] if len(arguments) > 1 else 1
