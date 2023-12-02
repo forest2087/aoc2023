@@ -6,6 +6,7 @@ import importlib
 
 from datetime import datetime
 from aocd import get_data
+from aocd import submit
 from zoneinfo import ZoneInfo
 
 # python main.py 1 s 1
@@ -35,7 +36,7 @@ def solv():
     f = readFile()
 
     func = getattr(mod, 'solv' + str(PART))
-    func(f)
+    return func(f)
 
 
 def run():
@@ -57,7 +58,11 @@ def run():
         shutil.copyfile('example.py', path + '/day'+CURRENT_DAY+'.py')
         print("Day" + CURRENT_DAY + " is created!")
     else:
-        solv()
+        ret = solv()
+        if INPUTTXT == 's':
+            print('Sample Answer - ', ret)
+        else:
+            submit(ret, part="a" if PART == 1 else "b")
 
 # for i in range(1, CURRENT_DAY+1):
 #     print('*'*30)
